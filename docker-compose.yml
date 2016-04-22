@@ -1,9 +1,9 @@
 version: '2'
 services:
     application:
-        build: .
+        build: ./code
         volumes:
-            - ./symfony:/var/www/symfony
+            - ./www.example.com:/data/wwwroot/www.example.com
         tty: true
     db:
         image: mysql
@@ -32,8 +32,7 @@ services:
         volumes_from:
             - application
         volumes:
-	    - ./www.example.com:/data/wwwroot/www.example.com
-	    - ./nginx/conf.d:/etc/nginx/conf.d
+            - ./nginx/conf.d:/etc/nginx/conf.d
             - ./nginx/rewrite:/etc/nginx/rewrite
             - ./logs/nginx:/var/log/nginx
     elk:
