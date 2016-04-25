@@ -1,10 +1,5 @@
 version: '2'
 services:
-    application:
-        build: ./code
-        volumes:
-            - ./www.example.com:/data/wwwroot/www.example.com
-        tty: true
     db:
         image: mysql
         ports:
@@ -12,15 +7,14 @@ services:
         environment:
             MYSQL_ROOT_PASSWORD: root
             MYSQL_DATABASE: wordpress
-            MYSQL_USER: root
-            MYSQL_PASSWORD: root
+            MYSQL_USER: developer
+            MYSQL_PASSWORD: developer
     php:
-        image: php:7.0-fpm
+        image: php:5-fpm
         expose:
             - "9000"
-        volumes_from:
-            - application
-        tty: true
+        volumes:
+            - ./code/www.example.com:/data/wwwroot/www.example.com
         links:
             - db
     nginx:
@@ -30,19 +24,8 @@ services:
         links:
             - php
         volumes_from:
-            - application
+            - php
         volumes:
             - ./nginx/conf.d:/etc/nginx/conf.d
             - ./nginx/rewrite:/etc/nginx/rewrite
             - ./logs/nginx:/var/log/nginx
-    elk:
-        image: willdurand/elk
-        ports:
-            - "81:80"
-        volumes:
-            - ./elk/logstash:/etc/logstash
-            - ./elk/logstash/patterns:/opt/logstash/patterns
-        volumes_from:
-            - application
-            - php
-            - nginx
