@@ -1,5 +1,5 @@
-# docker-lnmp
-A complete LNMP stack setup scripts for Docker &amp; docker-compose
+docker-lnmp
+==============
 
 Just a litle Docker POC in order to have a complete stack for running LNMP stack into Docker containers using docker-compose tool.
 
