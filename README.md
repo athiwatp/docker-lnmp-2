@@ -11,11 +11,15 @@ First, clone this repository:
 $ git clone git@github.com:ykcin/docker-lnmp.git
 ```
 
-Next, create `code` folder and put your application into `code` folder
+Next, create `code` folder and put your application into `code` folder, do not forget to add your local domain eg. `www.example.com` in your `hosts` file.
 
-For linux user, do not forget to add your local domain eg. `www.example.com` in your `/etc/hosts` file.
+* Linux
 
-For windows user, do not forget to add `www.example.com` in your `C:\Windows\System32\drivers\etc\hosts` file.
+Add to `/etc/hosts` file
+
+* Windows
+
+Add to `C:\Windows\System32\drivers\etc\hosts` file
 
 Then, run:
 
