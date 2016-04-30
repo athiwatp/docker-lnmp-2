@@ -11,7 +11,7 @@ First, clone this repository:
 $ git clone git@github.com:ykcin/docker-lnmp.git
 ```
 
-Next, put your Symfony application into `symfony` folder and do not forget to add `symfony.dev` in your `/etc/hosts` file.
+Next, create `code` folder, then put your application into `code` folder and do not forget to add your local domain eg. `www.example.com` in your `/etc/hosts` file.
 
 Then, run:
 
@@ -19,7 +19,7 @@ Then, run:
 $ docker-compose up
 ```
 
-You are done, you can visit your Symfony application on the following URL: `http://symfony.dev` (and access Kibana on `http://symfony.dev:81`)
+You are done, you can visit your application on the following URL: `http://www.example.com`
 
 _Note :_ you can rebuild all Docker images by running:
 
@@ -33,8 +33,7 @@ Here are the `docker-compose` built images:
 
 * `db`: This is the MySQL database container (can be changed to postgresql or whatever in `docker-compose.yml` file),
 * `php`: This is the PHP-FPM container including the application volume mounted on,
-* `nginx`: This is the Nginx webserver container in which php volumes are mounted too,
-* `elk`: This is a ELK stack container which uses Logstash to collect logs, send them into Elasticsearch and visualize them with Kibana.
+* `nginx`: This is the Nginx webserver container in which php volumes are mounted too
 
 This results in the following running containers:
 
@@ -43,18 +42,13 @@ This results in the following running containers:
         Name                      Command               State              Ports
         -------------------------------------------------------------------------------------------
         docker_db_1            /entrypoint.sh mysqld            Up      0.0.0.0:3306->3306/tcp
-        docker_elk_1           /usr/bin/supervisord -n -c ...   Up      0.0.0.0:81->80/tcp
         docker_nginx_1         nginx                            Up      443/tcp, 0.0.0.0:80->80/tcp
         docker_php_1           php5-fpm -F                      Up      9000/tcp
 ```
 
 # Read logs
 
-You can access Nginx and Symfony application logs in the following directories into your host machine:
+You can access Nginx logs in the following directories into your host machine:
 
 * `logs/nginx`
-* `logs/symfony`
 
-# Use Kibana!
-
-You can also use Kibana to visualize Nginx & Symfony logs by visiting `http://symfony.dev:81`.
