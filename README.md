@@ -3,6 +3,14 @@ docker-lnmp
 
 Just a litle Docker POC in order to have a complete stack for running LNMP stack into Docker containers using docker-compose tool.
 
+
+# Include
+
+- Linux
+- Nginx 1.9 (You can change <code>image: nginx:1.9.14</code> in docker-compose.yml to the version you want)
+- MySQL 5.7 (You can change <code>image: mysql</code> in docker-compose.yml to the version you want)
+- PHP 5.6 (You can change <code>FROM php:5-fpm</code> in php-fpm/Dockerfile to the version you want  e.g. <code>FROM php:7-fpm</code>)
+
 # Installation
 
 First, clone this repository:
@@ -66,3 +74,6 @@ You can access Nginx logs in the following directories into your host machine:
 
 * `logs/nginx`
 
+## License
+
+MIT
