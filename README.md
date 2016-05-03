@@ -7,9 +7,9 @@ Just a litle Docker POC in order to have a complete stack for running LNMP stack
 # Include
 
 - Linux
-- Nginx 1.9 (You can change <code>image: nginx:1.9.14</code> in docker-compose.yml to the version you want)
-- MySQL 5.7 (You can change <code>image: mysql</code> in docker-compose.yml to the version you want)
-- PHP 7 (You can change <code>FROM php:5-fpm</code> in php-fpm/Dockerfile to the version you want  e.g. <code>FROM php:5-fpm</code>)
+- Nginx 1.9 (You can change <code>image: nginx:1.9.14</code> in docker-compose.yml to [the version}(https://hub.docker.com/_/nginx/) you want)
+- MySQL 5.7 (You can change <code>image: mysql</code> in docker-compose.yml to [the version}(https://hub.docker.com/_/mysql/) you want)
+- PHP 7 (You can change <code>FROM php:7-fpm</code> in php-fpm/Dockerfile to [the version}(https://hub.docker.com/_/php/) you want  e.g. <code>FROM php:5-fpm</code>)
 
 # Installation
 
