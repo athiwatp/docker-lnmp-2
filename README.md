@@ -23,6 +23,7 @@ Next, create `www.example.com` folder and put your application into `code/www.ex
 
 ```
 $ mkdir -p code/www.example.com
+$ cp code/index.php code/www.example.com/index.php
 ```
 
 Do not forget to add your local domain e.g. `www.example.com` in your `hosts` file.
