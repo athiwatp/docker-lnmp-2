@@ -22,6 +22,7 @@ $ git clone git@github.com:ykcin/docker-lnmp.git
 Next, create `www.example.com` folder and put your application into `code/www.example.com` folder
 
 ```
+$ cd docker-lnmp
 $ mkdir -p code/www.example.com
 $ cp index.php code/www.example.com/index.php
 ```
