@@ -29,13 +29,6 @@ $ cp index.php code/www.example.com/index.php
 
 Do not forget to add your local domain e.g. `www.example.com` in your `hosts` file.
 
-You can get your docker machine ip with 
-
-```bash
-$ docker-machine ip default
-192.168.99.100
-```
-
 * Linux
 
 Add to `/etc/hosts` file
@@ -48,6 +41,13 @@ Add to `C:\Windows\System32\drivers\etc\hosts` file e.g.
 # docker
 192.168.99.100 example.com
 192.168.99.100 www.example.com
+```
+
+On Windows You can get your docker machine ip with 
+
+```bash
+$ docker-machine ip default
+192.168.99.100
 ```
 
 Then, run:
