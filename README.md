@@ -1,7 +1,7 @@
 docker-lnmp
 ==============
 
-Just a litle Docker POC in order to have a complete stack for running LNMP stack into Docker containers using docker-compose tool.
+Just a litle Docker POC in order to have a complete stack for running LNMP stack(Linux, Nginx, MySQL, PHP7) into Docker containers using docker-compose tool.
 
 
 # Include
