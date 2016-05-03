@@ -81,6 +81,33 @@ dockerlnmp_nginx_1   nginx -g daemon off;          Up      443/tcp, 0.0.0.0:80->
 dockerlnmp_php_1     php-fpm                       Up      9000/tcp
 ```
 
+# Quickstart
+
+## Docker Compose and WordPress
+
+1, Download WordPress into the code directory:
+
+```bash
+$ curl -o code/wordpress.tar.gz https://wordpress.org/latest.tar.gz
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 7580k  100 7580k    0     0   205k      0  0:00:36  0:00:36 --:--:--  149k
+
+$ tar -xvzf code/wordpress.tar.gz -C code
+```
+
+This creates a directory called wordpress in your code directory.
+
+2, Move wordpress application to your project directory.
+
+```bash
+$ mv code/wordpress code/www.example.com
+```
+
+3, You are done, you can visit your wordpress application on the following URL: `http://www.example.com`
+
+![Install wordpress](screenshot/20160503112801.png)
+
 # Read logs
 
 You can access Nginx logs in the following directories into your host machine:
