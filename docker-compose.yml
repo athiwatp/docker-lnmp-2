@@ -14,7 +14,7 @@ services:
         expose:
             - "9000"
         volumes:
-            - ./code/www.example.com:/data/wwwroot/www.example.com
+            - ./../code/www.myexample.com:/data/wwwroot/www.myexample.com
         links:
             - db
     nginx:

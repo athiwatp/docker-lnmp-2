@@ -19,15 +19,14 @@ First, clone this repository:
 $ git clone git@github.com:ykcin/docker-lnmp.git
 ```
 
-Next, create `www.example.com` folder and put your application into `code/www.example.com` folder
+Next, create `www.myexample.com` folder outside of `docker-lnmp` and put your application into `code/www.myexample.com` folder
 
 ```
-$ cd docker-lnmp
-$ mkdir -p code/www.example.com
-$ cp index.php code/www.example.com/index.php
+$ mkdir -p code/www.myexample.com
+$ cp index.php ../code/www.myexample.com/
 ```
 
-Do not forget to add your local domain e.g. `www.example.com` in your `hosts` file.
+Do not forget to add your local domain e.g. `www.myexample.com` in your `hosts` file.
 
 * Linux
 
@@ -39,11 +38,11 @@ Add to `C:\Windows\System32\drivers\etc\hosts` file e.g.
 
 ```
 # docker
-192.168.99.100 example.com
-192.168.99.100 www.example.com
+192.168.99.100 myexample.com
+192.168.99.100 www.myexample.com
 ```
 
-On Windows You can get your docker machine ip with 
+On Windows You can get your docker machine ip with
 
 ```bash
 $ docker-machine ip default
@@ -56,7 +55,7 @@ Then, run:
 $ docker-compose up
 ```
 
-You are done, you can visit your application on the following URL: `http://www.example.com`
+You are done, you can visit your application on the following URL: `http://www.myexample.com`
 
 _Note :_ you can rebuild all Docker images by running:
 
@@ -100,15 +99,15 @@ $ tar -xvzf code/wordpress.tar.gz -C code
 
 This creates a directory called wordpress in your code directory.
 
-2, Move wordpress application to your project directory.
+2, Copy wordpress application to your project directory.
 
 ```bash
-$ mv code/wordpress code/www.example.com
+$ cp -rT code/wordpress code/www.myexample.com
 ```
 
-3, You are done, you can visit your wordpress application on the following URL: `http://www.example.com`
+3, You are done, you can visit your wordpress application on the following URL: `http://www.myexample.com`
 
-![Install wordpress](screenshot/20160503112801.png)
+![Install wordpress](screenshot/20160522150407.png)
 
 # Read logs
 
