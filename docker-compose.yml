@@ -26,6 +26,6 @@ services:
         volumes_from:
             - php
         volumes:
-            - ./nginx/conf.d:/etc/nginx/conf.d
-            - ./nginx/rewrite:/etc/nginx/rewrite
+            - ./nginx/sample/conf.d:/etc/nginx/conf.d
+            - ./nginx/sample/rewrite:/etc/nginx/rewrite
             - ./logs/nginx:/var/log/nginx
