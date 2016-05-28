@@ -29,3 +29,10 @@ services:
             - ./nginx/sample/conf.d:/etc/nginx/conf.d
             - ./nginx/sample/rewrite:/etc/nginx/rewrite
             - ./logs/nginx:/var/log/nginx
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        environment:
+         - PMA_HOST=db
+        restart: always
+        ports:
+         - 8080:80

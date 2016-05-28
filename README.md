@@ -74,18 +74,20 @@ $ docker-compose build
 Here are the `docker-compose` built images:
 
 * `db`: This is the MySQL database container (can be changed to postgresql or whatever in `docker-compose.yml` file),
-* `php`: This is the PHP-FPM container including the application volume mounted on,
 * `nginx`: This is the Nginx webserver container in which php volumes are mounted too
+* `php`: This is the PHP-FPM container including the application volume mounted on
+* `phpmyadmin`: This is the phpMyAdmin container (A web interface for MySQL and MariaDB)
 
 This results in the following running containers:
 
 ```bash
 $ docker-compose ps
-       Name                    Command             State              Ports
---------------------------------------------------------------------------------------
-dockerlnmp_db_1      docker-entrypoint.sh mysqld   Up      0.0.0.0:3306->3306/tcp
-dockerlnmp_nginx_1   nginx -g daemon off;          Up      443/tcp, 0.0.0.0:80->80/tcp
-dockerlnmp_php_1     php-fpm                       Up      9000/tcp
+         Name                       Command             State              Ports
+-------------------------------------------------------------------------------------------
+dockerlnmp_db_1           docker-entrypoint.sh mysqld   Up      0.0.0.0:3306->3306/tcp
+dockerlnmp_nginx_1        nginx -g daemon off;          Up      443/tcp, 0.0.0.0:80->80/tcp
+dockerlnmp_php_1          php-fpm                       Up      9000/tcp
+dockerlnmp_phpmyadmin_1   /run.sh                       Up      0.0.0.0:8080->80/tcp
 ```
 
 # Quickstart
