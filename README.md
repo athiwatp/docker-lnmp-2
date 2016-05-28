@@ -32,6 +32,12 @@ Do not forget to add your local domain e.g. `www.myexample.com` in your `hosts` 
 
 Add to `/etc/hosts` file
 
+And You have to change owner of code directory so that your php script can write.
+
+```
+chown -R www-data:www-data code
+```
+
 * Windows
 
 Add to `C:\Windows\System32\drivers\etc\hosts` file e.g.
