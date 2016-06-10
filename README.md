@@ -120,7 +120,7 @@ $ cp -rT code/wordpress code/www.myexample.com
 ![Install wordpress](screenshot/20160522150407.png)
 
 
-## Use npm
+## You can use node container this way
 
 ```
 $ docker run -v "$HOME/code/www.myexample.com":/usr/src/app -w /usr/src/app dockerlnmp_node npm -v
@@ -147,6 +147,12 @@ wp-settings.php
 wp-signup.php
 wp-trackback.php
 xmlrpc.php
+
+# On unix
+$ docker run -v "$HOME/code/www.myexample.com":/usr/src/app -w /usr/src/app dockerlnmp_node npm install
+
+# On windows
+$ docker run -v "$HOME/code/www.myexample.com":/usr/src/app -w /usr/src/app dockerlnmp_node npm install --no-bin-links
 ```
 
 # Read logs
