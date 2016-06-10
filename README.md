@@ -77,6 +77,7 @@ Here are the `docker-compose` built images:
 * `nginx`: This is the Nginx webserver container in which php volumes are mounted too
 * `php`: This is the PHP-FPM container including the application volume mounted on
 * `phpmyadmin`: This is the phpMyAdmin container (A web interface for MySQL and MariaDB)
+* `node`: This is the node container (A container for npm)
 
 This results in the following running containers:
 
@@ -86,6 +87,7 @@ $ docker-compose ps
 -------------------------------------------------------------------------------------------
 dockerlnmp_db_1           docker-entrypoint.sh mysqld   Up      0.0.0.0:3306->3306/tcp
 dockerlnmp_nginx_1        nginx -g daemon off;          Up      443/tcp, 0.0.0.0:80->80/tcp
+dockerlnmp_node_1         node                          Exit 0
 dockerlnmp_php_1          php-fpm                       Up      9000/tcp
 dockerlnmp_phpmyadmin_1   /run.sh                       Up      0.0.0.0:8080->80/tcp
 ```
@@ -116,6 +118,36 @@ $ cp -rT code/wordpress code/www.myexample.com
 3, You are done, you can visit your wordpress application on the following URL: `http://www.myexample.com`
 
 ![Install wordpress](screenshot/20160522150407.png)
+
+
+## Use npm
+
+```
+$ docker run -v "$HOME/code/www.myexample.com":/usr/src/app -w /usr/src/app dockerlnmp_node npm -v
+3.9.3
+
+$ docker run -v "$HOME/code/www.myexample.com":/usr/src/app -w /usr/src/app dockerlnmp_node ls
+index.php
+license.txt
+readme.html
+wp-activate.php
+wp-admin
+wp-blog-header.php
+wp-comments-post.php
+wp-config-sample.php
+wp-config.php
+wp-content
+wp-cron.php
+wp-includes
+wp-links-opml.php
+wp-load.php
+wp-login.php
+wp-mail.php
+wp-settings.php
+wp-signup.php
+wp-trackback.php
+xmlrpc.php
+```
 
 # Read logs
 
