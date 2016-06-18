@@ -1,7 +1,7 @@
 docker-lnmp
 ==============
 
-Just a litle Docker POC in order to have a complete stack for running LNMP stack(Linux, Nginx, MySQL, PHP7) into Docker containers using docker-compose tool.
+Just a litle Docker POC in order to have a complete stack for running LNMP stack(Linux, Nginx, MySQL, PHP7 & Redis) into Docker containers using docker-compose tool.
 
 
 # Include
@@ -9,7 +9,12 @@ Just a litle Docker POC in order to have a complete stack for running LNMP stack
 - Linux
 - Nginx 1.9 (You can change <code>image: nginx:1.9.14</code> in docker-compose.yml to [the version](https://hub.docker.com/_/nginx/) you want)
 - MySQL 5.7 (You can change <code>image: mysql</code> in docker-compose.yml to [the version](https://hub.docker.com/_/mysql/) you want)
-- PHP 7 (You can change <code>FROM php:7-fpm</code> in php-fpm/Dockerfile to [the version](https://hub.docker.com/_/php/) you want  e.g. <code>FROM php:5-fpm</code>)
+- PHP 7 (You can change <code>FROM php:7-fpm</code> in php7/Dockerfile to [the version](https://hub.docker.com/_/php/) you want  e.g. <code>FROM php:5-fpm</code>)
+- redis
+- node 5
+- php extensions
+    - xdebug
+    - redis
 
 # Installation
 
@@ -58,7 +63,12 @@ $ docker-machine ip default
 Then, run:
 
 ```bash
-$ docker-compose up
+$ docker-compose up -d
+```
+
+If you prefer php5, run the belowing instead
+```bash
+$ docker-compose -f docker-compose-php5.yml up -d
 ```
 
 You are done, you can visit your application on the following URL: `http://www.myexample.com`
@@ -83,13 +93,14 @@ This results in the following running containers:
 
 ```bash
 $ docker-compose ps
-         Name                       Command             State              Ports
--------------------------------------------------------------------------------------------
-dockerlnmp_db_1           docker-entrypoint.sh mysqld   Up      0.0.0.0:3306->3306/tcp
-dockerlnmp_nginx_1        nginx -g daemon off;          Up      443/tcp, 0.0.0.0:80->80/tcp
-dockerlnmp_node_1         node                          Exit 0
-dockerlnmp_php_1          php-fpm                       Up      9000/tcp
-dockerlnmp_phpmyadmin_1   /run.sh                       Up      0.0.0.0:8080->80/tcp
+         Name                        Command               State                 Ports
+----------------------------------------------------------------------------------------------------
+dockerlnmp_db_1           docker-entrypoint.sh mysqld      Up       0.0.0.0:3306->3306/tcp
+dockerlnmp_nginx_1        nginx -g daemon off;             Up       443/tcp, 0.0.0.0:80->80/tcp
+dockerlnmp_node_1         node                             Exit 0
+dockerlnmp_php_1          php-fpm                          Up       9000/tcp, 0.0.0.0:9001->9001/tcp
+dockerlnmp_phpmyadmin_1   /run.sh                          Up       0.0.0.0:8080->80/tcp
+dockerlnmp_redis_1        docker-entrypoint.sh redis ...   Up       0.0.0.0:6379->6379/tcp
 ```
 
 # Quickstart

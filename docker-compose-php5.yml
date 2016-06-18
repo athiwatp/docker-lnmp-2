@@ -10,12 +10,12 @@ services:
             MYSQL_USER: developer
             MYSQL_PASSWORD: developer
     php:
-        build: ./php7
+        build: ./php5
         expose:
             - "9000"
         #xdebug
         ports:
-            - "9001:9001"
+            - "9001:9001"            
         volumes:
             - ./../code/www.myexample.com:/data/wwwroot/www.myexample.com
         links:
