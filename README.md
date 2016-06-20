@@ -60,7 +60,12 @@ $ docker-machine ip default
 192.168.99.100
 ```
 
-Then, run:
+Then, choose one of the docker compose configuration file, .e.g.
+```bash
+$ cp docker-compose-php7.yml docker-compose.yml
+```
+
+and run:
 
 ```bash
 $ docker-compose up -d
