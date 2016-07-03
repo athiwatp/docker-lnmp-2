@@ -84,6 +84,12 @@ _Note :_ you can rebuild all Docker images by running:
 $ docker-compose build
 ```
 
+or rebuild specific image
+
+```
+$ docker-compose build node
+```
+
 # How it works?
 
 Here are the `docker-compose` built images:
@@ -169,6 +175,27 @@ $ docker run -v "$HOME/code/www.myexample.com":/usr/src/app -w /usr/src/app dock
 
 # On windows
 $ docker run -v "$HOME/code/www.myexample.com":/usr/src/app -w /usr/src/app dockerlnmp_node npm install --no-bin-links
+```
+
+## or you can use node container with alias
+
+```bash
+touch ~/.profile
+```
+
+append a line to .profile
+```
+alias nodecmd="docker run -v '$HOME/code/react.dev':/usr/src/app dockerlnmp_node "
+```
+
+run
+```
+source ~/.profile
+```
+
+now you can run shorthand cmd with `nodecmd` + cmd, e.g.
+```
+nodecmd npm -v
 ```
 
 # Read logs
