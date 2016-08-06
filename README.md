@@ -16,7 +16,7 @@ Just a litle Docker POC in order to have a complete stack for running LNMP stack
     - xdebug
     - redis
 
-# Based on http://ykcin.github.io/fatsheep/personal/lets-use-docker-to-install-lnmp-stack-on-windows
+# Based on this [tutorial](http://ykcin.github.io/fatsheep/personal/lets-use-docker-to-install-lnmp-stack-on-windows)
 
 # Installation
 
